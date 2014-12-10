@@ -1,0 +1,17 @@
+<template name="privateMessage">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{subject}}</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="media-list">
+                {{#each messages}}
+                    {{> privateMessageText}}
+                {{/each}}
+            </ul>
+            <textarea id="message-input" name="message" type="text" value="" rows="5" class="form-control"></textarea>
+            <br />
+            <button class="btn btn-primary send-message-button">Send</button>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,1 @@
+Alerts should disappear after 2 sec. !!!

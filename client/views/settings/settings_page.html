@@ -1,0 +1,56 @@
+<template name="settingsPage">
+    <div class="settings-page">
+        <h1>Settings</h1>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Change personal information</h3>
+            </div>
+            <div class="panel-body">
+                {{> changePersonalInfo}}
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Avatar</h3>
+            </div>
+            <div class="panel-body">
+                {{> editAvatar}}
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Change password</h3>
+            </div>
+            <div class="panel-body">
+                {{> changePassword}}
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Color</h3>
+            </div>
+            <div class="panel-body">
+                <select name="colorpicker-bootstrap3-form" id="colorpicker-bootstrap3-form" class="form-control">
+                    <option value="#7bd148">Green</option>
+                    <option value="#5484ed">Bold blue</option>
+                    <option value="#a4bdfc">Blue</option>
+                    <option value="#46d6db">Turquoise</option>
+                    <option value="#7ae7bf">Light green</option>
+                    <option value="#51b749">Bold green</option>
+                    <option value="#fbd75b">Yellow</option>
+                    <option value="#ffb878">Orange</option>
+                    <option value="#ff887c">Red</option>
+                    <option value="#dc2127">Bold red</option>
+                    <option value="#dbadff">Purple</option>
+                    <option value="#e1e1e1">Gray</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+</template>

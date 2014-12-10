@@ -1,0 +1,178 @@
+<template name="productEdit">
+    <form class="main">
+        <h1>Edit product</h1>
+        <div class="control-group">
+            <div class="controls">
+                <div class="input-group">
+                    <span class="input-group-addon">Title</span>
+                    <input id="title" name="title" class="form-control" type="text" value="{{title}}" placeholder="Name your product"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="description">Description</label>
+            <div class="controls">
+                <textarea id="description-input" name="description" class="form-control" type="text" value="{{description}}" placeholder="Brief description of the product to be developed"></textarea>
+            </div>
+        </div>
+        <br>
+
+        <div class="control-group">
+            <label class="control-label" for="mode">Advanced mode</label>
+            <div class="controls">
+                <label class="toggle">
+                    <input type="checkbox" name="advancedMode" {{advancedModeChecked}} disabled>
+                    <span class="handle"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="members">Build your team</label>
+            <div class="controls">
+
+                {{> memberSearch}}
+
+                {{> memberMultipleSelect}}
+
+                {{#if advancedMode}}
+                    <button id="assign-as-scrum-master" type="button" class="btn btn-info btn-block {{#if scrumMaster.length}}disabled{{/if}}">Assign as Scrum Master</button>
+                {{/if}}
+                <button id="add-to-development-team" type="button" class="btn btn-warning btn-block">Add to Development Team</button>
+
+                <br />
+            </div>
+        </div>
+
+        {{#unless advancedMode}}
+            <div id="panel-administrator" class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a href="#" id="administrator" rel="popover">Administrator</a>
+                        <span class="badge badge-default pull-right">1</span>
+                    </h3>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Username</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>{{currentUserUsername}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        {{else}}
+            <div id="panel-product-owner" class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a href="#" id="product-owner" rel="popover">Product Owner</a>
+                        <span class="badge badge-default pull-right">1</span>
+                    </h3>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Username</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>{{currentUserUsername}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="panel-scrum-master" class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a href="#" id="scrum-master" rel="popover">Scrum Master</a>
+                        <span class="badge badge-default pull-right">{{totalScrumMaster}}</span></h3>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Username</th>
+                        <th>Actions</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each roleScrumMasterCursorWithIndex}}
+                    <tr>
+                        <td>{{index}}</td>
+                        <td><a href="{{pathFor 'profilePage'}}" target="_blank">{{username}}</a></td>
+                        <td>
+                            {{> privateMessageCreateEditableButton}}
+                            <button class="glyphicon glyphicon-remove dissociate-scrum-master" name="{{_id}}"></button>
+                        </td>
+                        <td>
+                            {{#unless isAlreadyInRole}}
+                                <span class="glyphicon glyphicon-question-sign"></span>
+                            {{else}}
+                                <span class="glyphicon glyphicon-ok-sign"></span>
+                            {{/unless}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        {{/unless}}
+
+        <div id="panel-development-team" class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">Development Team<span class="badge badge-default pull-right">{{totalDevTeamMember}}</span></h3>
+            </div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#each roleDevTeamCursorWithIndex}}
+                        <tr>
+                            <td>{{index}}</td>
+                            <td><a href="{{pathFor 'profilePage'}}" target="_blank">{{username}}</a></td>
+                            <td>
+                                {{> privateMessageCreateEditableButton}}
+                                <button class="glyphicon glyphicon-remove delete-member-from-development-team" name="{{_id}}"></button>
+                            </td>
+                            <td>
+                            {{#unless isAlreadyInRole}}
+                                <span class="glyphicon glyphicon-question-sign"></span>
+                            {{else}}
+                                <span class="glyphicon glyphicon-ok-sign"></span>
+                            {{/unless}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" value="Submit" class="btn btn-primary"/>
+                <a href="{{pathFor 'dashboard'}}" class="btn btn-default btn-sm">Cancel</a>
+            </div>
+        </div>
+        <hr/>
+        <div class="control-group">
+            <div class="controls">
+                <a class="btn btn-danger delete  btn-delete-item" href="">Delete product</a>
+            </div>
+        </div>
+    </form>
+</template>

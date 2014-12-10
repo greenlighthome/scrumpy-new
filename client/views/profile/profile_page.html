@@ -1,0 +1,17 @@
+<template name="profilePage">
+    {{#if noAvatar 'profile'}}
+        <img src="{{defaultAvatar}}" alt="{{username}}" width="30" height="30" />
+    {{else}}
+        <img src="{{profile.image}}" alt="{{username}}" width="30" height="30" />
+    {{/if}}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{username}}</h3>
+        </div>
+        <div class="panel-body">
+            {{profile.firstName}}
+            {{profile.lastName}}
+            {{profile.organization}}
+        </div>
+    </div>
+</template>

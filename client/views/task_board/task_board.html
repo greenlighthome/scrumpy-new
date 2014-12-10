@@ -1,0 +1,70 @@
+<template name="taskBoard">
+        <div id="scrum-board">
+            <div id="drag">
+                <table>
+                    <tr class="scrum-board-header">
+                        <th class="table-stories mark">Stories</th>
+                        <th class="table-plus mark"></th>
+                        <th class="table-to-do mark">Todo</th>
+                        <th class="table-started mark">Started</th>
+                        <th class="table-verify mark">Verify</th>
+                        <th class="table-done mark">Done</th>
+                    </tr>
+                    {{#each userStories}}
+                    <tr id="{{_id}}" class="story-row">
+                        <td class="stories mark">
+                            {{> userStory}}
+                        </td>
+                        <td class="plus mark">
+                            {{> newSticky}}
+                        </td>
+                        <td class="to-do">
+                            {{#each stickyType '1'}}
+                                {{> sticky}}
+                            {{/each}}
+                        </td>
+                        <td class="started">
+                            {{#each stickyType '2'}}
+                                {{> sticky}}
+                            {{/each}}
+                        </td>
+                        <td class="verify">
+                            {{#each stickyType '3'}}
+                                {{> sticky}}
+                            {{/each}}
+                        </td>
+                        <td class="done">
+                            {{#each stickyType '4'}}
+                                {{> sticky}}
+                            {{/each}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                    {{#unless advancedMode}}
+                        <tr class="story-row mark">
+                            <td class="stories mark">
+                                <a href="#" id="new-user-story-editable" data-type="userStory" class="editable editable-click" data-original-title="" title="">New user story</a>
+                            </td>
+                            <td class="plus mark">
+
+                            </td>
+                            <td class="to-do mark">
+
+                            </td>
+                            <td class="started mark">
+
+                            </td>
+                            <td class="verify mark">
+
+                            </td>
+                            <td class="done mark">
+
+                            </td>
+                        </tr>
+                    {{/unless}}
+                </table>
+            </div>
+            {{> stickyAdd}}
+            {{> stickyEdit}}
+        </div>
+</template>

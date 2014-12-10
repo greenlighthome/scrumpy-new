@@ -1,0 +1,57 @@
+<template name="productDashboard">
+
+    <!-- Items: Statistics (like Burndown Chart, moved stickies for this sprint and total, etc.), Current Sprint overview, members involved, activity feed -->
+
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Overall statistics</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li>Sprint status: ok</li>
+                    <li>Total moved stickies: x</li>
+                    <li>Total user stories: x</li>
+                    <li>User stories in current sprint: x</li>
+                    <li>Member working on this product: x</li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Bar chart
+                    <label class="toggle">
+                        <input type="checkbox" name="showBarChartForCurrentSprint" {{barChartSwitch}}>
+                        <span class="handle"></span>
+                    </label>
+                </h3>
+            </div>
+            <div class="panel-body">
+                {{> productPageBarChart}}
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Your team</h3>
+            </div>
+            <div class="panel-body">
+                {{> teamOverview}}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-info">
+            <div class="panel-heading">Burndown chart</div>
+            <div class="panel-body">
+                {{> productPageBurndownChart}}
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Activity stream</div>
+            <div class="panel-body">
+                {{> activityStream}}
+            </div>
+        </div>
+    </div>
+
+</template>

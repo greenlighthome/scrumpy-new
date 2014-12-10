@@ -1,0 +1,21 @@
+<template name="notifications">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <span class="fa fa-envelope"></span>
+        {{#if notificationCount}}
+            <span class="badge badge-inverse">{{notificationCount}}</span>
+        {{/if}}
+        <b class="caret"></b>
+    </a>
+    <ul class="notification dropdown-menu">
+        {{#if notificationCount}}
+            {{#each notifications}}
+                {{> notification}}
+            {{/each}}
+            <li class="mark-all-notifications-as-read">
+                <a href="#">Mark all notifications as read.</a>
+            </li>
+        {{else}}
+            <p>You got no notifications</p>
+        {{/if}}
+    </ul>
+</template>

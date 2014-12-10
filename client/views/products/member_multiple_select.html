@@ -1,0 +1,27 @@
+<template name="memberMultipleSelect">
+    {{#ifEsInputIsEmpty id="userSearch" index="users"}}
+        <div class="alert alert-info alert-dismissable">
+            Search for users
+        </div>
+    {{/ifEsInputIsEmpty}}
+
+    {{#ifEsIsSearching id="userSearch" index="users"}}
+        <div class="alert alert-info alert-dismissable">
+            Loading…
+        </div>
+    {{else}}
+        {{#unless totalResultSetEmpty}}
+            <select multiple id="select-multiple-product" class="select-multiple">
+                {{#esEach id="userSearch" index="users"}}
+                    <option class="select-multiple-user-element" value="{{_id}}">{{username}}</option>
+                {{/esEach}}
+            </select>
+        {{/unless}}
+    {{/ifEsIsSearching}}
+
+    {{#ifEsHasNoResults id="userSearch" index="users"}}
+        <div class="alert alert-danger alert-dismissable">
+            No results found!
+        </div>
+    {{/ifEsHasNoResults}}
+</template>

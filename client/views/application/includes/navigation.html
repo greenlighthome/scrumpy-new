@@ -1,0 +1,73 @@
+<template name="navigation">
+    <!-- <div class="navigation">
+        <ul class="sub-navigation-left">
+            {{#if currentUser}}
+                <li><a href="{{pathFor 'dashboard'}}">Dashboard</a></li>
+                <li id="new-project"><a href="{{pathFor 'productCreate'}}">New Product</a></li>
+            {{/if}}
+        </ul>
+        <ul class="sub-navigation-right">
+            {{#if currentUser}}
+                <a href="{{pathFor 'dashboard'}}" id="logout">Logout</a>
+                <a href="{{pathFor 'settingsPage'}}" id="settings">Settings</a>
+                {{#if noAvatar 'currentUser'}}
+                    {{#with user}}
+                        <a href="{{pathFor 'profilePage'}}"><img src="{{defaultAvatar}}" alt="{{currentUserUsername}}" width="30" height="30" /></a>
+                    {{/with}}
+                {{else}}
+                    {{#with user}}
+                        <a href="{{pathFor 'profilePage'}}"><img src="{{avatar}}" alt="{{currentUserUsername}}" width="30" height="30" /></a>
+                    {{/with}}
+                {{/if}}
+            {{else}}
+                <a href="{{pathFor 'login'}}">Login</a>
+                <a href="{{pathFor 'register'}}">Register</a>
+            {{/if}}
+            {{#if currentUser}}
+                <li class="notifications">{{> notifications}}</li>
+            {{/if}}
+            <li id="btn-help" data-toggle="popover"><a href="#" class="fa fa-question"></a></li>
+        </ul>
+    </div> -->
+
+
+<div id="top-navigation" class="navbar navbar-default">
+
+    <div class="settings">
+        <img class="settings-img" src="/images/settings.png" width="23">
+    </div>
+
+    <div class="sidebar-top">
+        <a href="{{pathFor 'dashboard'}}"><img class="logo" src="/images/logo.png" width="40"></a>
+    </div>
+
+
+    <div class="dropdown">
+        <div class="dropdown-toggle action-button avatar-container" data-toggle="dropdown">
+            <img class="avatar-img" src="{{defaultAvatar}}" alt="{{currentUserUsername}}" width="35" />
+        </div>
+
+        <ul class="dropdown-menu action-menu" role="menu">
+            {{#if currentUser}}
+                {{#with user}}
+                    <li><a href="{{pathFor 'profilePage'}}">{{currentUserUsername}}</a></li>
+                {{/with}}
+                <li><a href="{{pathFor 'dashboard'}}" id="logout">Logout</a></li>
+                <li><a href="{{pathFor 'settingsPage'}}" id="settings">Settings</a></li>
+                {{#if noAvatar}}
+                    {{#with user}}
+                        <li><a href="{{pathFor 'profilePage'}}"><img src="{{defaultAvatar}}" alt="{{currentUserUsername}}" width="30" height="30" /></a></li>
+                    {{/with}}
+                {{else}}
+
+                {{/if}}
+            {{else}}
+                <li><a href="{{pathFor 'login'}}">Login</a></li>
+                <li><a href="{{pathFor 'register'}}">Register</a></li>
+            {{/if}}
+        </ul>
+    </div>
+</div>
+
+</template>
+

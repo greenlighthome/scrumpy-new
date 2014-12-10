@@ -1,0 +1,7 @@
+<template name="privateMessageCreateEditableButton">
+    {{#if isCurrUser}}
+        <button class="glyphicon glyphicon-envelope disabled" name="{{_id}}" type="button"></button>
+    {{else}}
+        <button data-type="pm" class="glyphicon glyphicon-envelope private-message-create-editable editable editable-click" name="{{_id}}" type="button"></button>
+    {{/if}}
+</template>

@@ -1,0 +1,22 @@
+<template name="comment">
+    <li>
+        <h4>
+            {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+            <span class="author">{{author}}</span>
+            <span class="date">on {{submittedFormatted}}</span>
+
+            {{#if productOwnerOrOwnerOfComment}}
+                <button class="glyphicon glyphicon-remove btn btn-danger btn-xs delete-comment"></button>
+                <button class="glyphicon glyphicon-pencil btn btn-default btn-xs edit-comment"></button>
+            {{/if}}
+
+        </h4>
+        {{#if editComment}}
+            <input name="edit-comment-input" type="text" class="edit-comment-input" value="{{body}}"/>
+            <button name="edit-comment-submit-button" class="glyphicon glyphicon-ok btn btn-success btn-xs edit-comment-submit-button"></button>
+            <button name="edit-comment-cancel-button" class="glyphicon glyphicon-remove btn btn-danger btn-xs edit-comment-cancel-button"></button>
+        {{else}}
+            <div class="commentBody"><p>{{body}}</p></div>
+        {{/if}}
+    </li>
+</template>

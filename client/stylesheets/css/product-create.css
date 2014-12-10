@@ -1,0 +1,24 @@
+.blue {
+  background-color: #5ccdde;
+}
+.green {
+  background-color: #afde5c;
+}
+.orange {
+  background-color: #deb25c;
+}
+.red {
+  background-color: #de815c;
+}
+/** Shades of grey **/
+/** Screen resolution **/
+/** Font settings **/
+form.main {
+  padding: 20px;
+  border: solid 1px #666666;
+  width: 400px!important;
+}
+#description-input {
+  background-color: red;
+  width: 400px;
+}

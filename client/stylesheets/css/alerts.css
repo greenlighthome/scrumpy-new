@@ -1,0 +1,8 @@
+.alert {
+  position: absolute;
+  top: 80px;
+  z-index: 100;
+  float: right;
+  right: 20px;
+  opacity: 0.8;
+}

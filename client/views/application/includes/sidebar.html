@@ -1,0 +1,24 @@
+<template name="sidebar">
+    <div id="sidebar">
+        <div class="dashboard-block">
+            <a href="{{pathFor 'dashboard'}}"><span class="glyphicon glyphicon-home"></span>
+                <span class="dashboard-link">Dashboard</span></a>
+        </div>
+    {{#if currentUser}}
+        {{#with user}}
+        <div class="profile-block">
+            <a href="{{pathFor 'profilePage'}}"><span class="glyphicon glyphicon-user"></span><span class="profile-link">Profile</span></a>
+        </div>
+        {{/with}}
+    {{/if}}
+        <div class="settings-block">
+            <a href="{{pathFor 'settingsPage'}}"><span class="glyphicon glyphicon-cog"></span><span class="settings-link">Settings</span></a>
+        </div>
+        <div class="new-product-block">
+            <a href="{{pathFor 'productCreate'}}"><span class="glyphicon glyphicon-fire"></span><span class="new-product-link">New product</span></a>
+        </div>
+        <div class="notifications-block">
+            <a href="{{pathFor 'privateMessagesList'}}"><span class="glyphicon glyphicon-globe"></span><span class="notifications-link">Notifications</span></a>
+        </div>
+    </div>
+</template>

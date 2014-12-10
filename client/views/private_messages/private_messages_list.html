@@ -1,0 +1,11 @@
+<template name="privateMessagesList">
+    <h1>Private messages</h1>
+    {{#if noPrivateMessages}}
+        Start sending private messages!
+        <a href="{{pathFor 'privateMessageCreate'}}"><button>Create pm</button></a>
+    {{else}}
+        {{#each privateMessages}}
+            {{> privateMessageItem}}
+        {{/each}}
+    {{/if}}
+</template>

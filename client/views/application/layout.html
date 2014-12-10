@@ -1,0 +1,11 @@
+<template name="layout">
+    <header class="application">
+        {{> navigation}}
+        {{> alerts}}
+        {{> dialogs}}
+    </header>
+    <div class="custom-container">
+        {{> yield}}
+    </div>
+    <!-- {{> footerApplication}} -->
+</template>

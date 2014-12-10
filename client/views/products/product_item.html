@@ -1,0 +1,28 @@
+<template name="productItem">
+    <div class="project">
+        <div class="project-content">
+           <h3><a href="{{pathFor 'productPage'}}">{{titleShort 'product'}}</a></h3>
+            <p>
+                <i>created by {{author}}</i>
+                {{#if advancedMode}}
+                    {{#if userIsProductOwner}}
+                    - <b>Product Owner</b>,
+                    {{/if}}
+                    {{#if userIsScrumMaster}}
+                    - <b>Scrum Master</b>,
+                    {{/if}}
+                {{else}}
+                    {{#if userIsAdmin}}
+                    - <b>Administrator</b>,
+                    {{/if}}
+                    {{#if userIsInDevTeam}}
+                    - <b>Member of Development Team</b>,
+                    {{/if}}
+                {{/if}}
+            </p>
+        </div>
+        {{#if userIsAdminOrProductOwner}}
+            <a href="{{pathFor 'productEdit'}}" class="discuss btn btn-default edit-btn">Edit</a>
+        {{/if}}
+    </div>
+</template>

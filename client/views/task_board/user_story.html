@@ -1,0 +1,18 @@
+<template name="userStory">
+    <div class="panel panel-{{prLevel}} story {{dragClass}}" id="{{_id}}">
+        <div class="panel-heading">
+            {{#if userIsProductOwnerOrAdvancedModeOff}}
+                <h3 class="panel-title editable-user-story-title" data-type="text" data-placeholder="Enter text">{{titleShort 'story'}}</h3>
+            {{else}}
+                <h3 class="panel-title">{{titleShort 'story'}}</h3>
+            {{/if}}
+        </div>
+        <div class="panel-body">
+            {{#if userIsProductOwnerOrAdvancedModeOff}}
+                <p class="editable-user-story-description" data-type="textarea" data-placeholder="Enter text" data-row="2">{{description}}</p>
+            {{else}}
+                <p>{{description}}</p>
+            {{/if}}
+        </div>
+    </div>
+</template>

@@ -1,0 +1,72 @@
+<template name="activityStreamElement">
+    {{#if elType '1'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} created the product with the title {{productTitle}}.
+        {{submittedFormatted}}
+    {{/if}}
+    {{#if elType '2'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} changed the product title from {{oldProductTitle}} to {{newProductTitle}}.
+        {{submittedFormatted}}
+    {{/if}}
+    {{#if elType '3'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} accepted to work on {{productTitle}} as {{roleFormatted}}.
+        {{submittedFormatted}}
+    {{/if}}
+    {{#if elType '4'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} declined to work on {{productTitle}}.
+        {{submittedFormatted}}
+    {{/if}}
+    {{#if elType '5'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} created the sprint {{sprintGoal}} with the period from {{sprintStartDate}} to {{sprintEndDate}}.
+        {{submittedFormatted}}
+    {{/if}}
+    {{#if elType '6'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} created the user story {{userStoryTitle}}.
+        {{submittedFormatted}}
+    {{/if}}
+    {{#if elType '7'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} assigned a {{priorityFormatted}} for the user story {{userStoryTitle}} on the sprint {{sprintGoal}}.
+        {{submittedFormatted}}
+    {{/if}}
+    {{#if elType '8'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} created the sticky {{stickyTitle}} for the user story {{userStoryTitle}} in the sprint {{sprintGoal}}.
+        {{submittedFormatted}}
+    {{/if}}
+    {{#if elType '9'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} moved the sticky {{stickyTitle}} from status {{stickyStatusFormatted 'old'}} to {{stickyStatusFormatted 'new'}}.
+        {{submittedFormatted}}
+    {{/if}}
+    {{#if elType '10'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} changed the sticky title from {{oldStickyTitle}} to {{newStickyTitle}}.
+        {{submittedFormatted}}
+    {{/if}}
+    {{#if elType '11'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} changed the sticky description from {{oldStickyDescription}} to {{newStickyDescription}}.
+        {{submittedFormatted}}
+    {{/if}}
+    {{#if elType '12'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} changed the user story title from {{oldUserStoryTitle}} to {{newUserStoryTitle}}.
+        {{submittedFormatted}}
+    {{/if}}
+    {{#if elType '13'}}
+        {{#with user}}<a class="pull-left" href="{{pathFor 'profilePage'}}"><img class="media-object img-rounded" src="{{avatar}}" alt="{{username}}" width="30" height="30"></a>{{/with}}
+        {{author}} changed the user story description from {{oldUserStoryDescription}} to {{newUserStoryDescription}}.
+        {{submittedFormatted}}
+    {{/if}}
+    <br />
+    {{#each comments}}
+        {{> comment}}
+    {{/each}}
+    {{> commentSubmit}}
+</template>

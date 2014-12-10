@@ -1,0 +1,39 @@
+<template name="sprint">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{goal}}: {{sprintStartDateFormatted}} - {{sprintEndDateFormatted}}</h3>
+        </div>
+        <div class="panel-body">
+            <table>
+                <tr>
+                    <th class="mark">Low priority</th>
+                    <th class="mark">Medium priority</th>
+                    <th class="mark">High priority</th>
+                </tr>
+                <tr id="{{_id}}">
+                    <td class="low-priority">
+                      {{#each userStoriesAssignedToSprint '1'}}
+                        {{> userStory}}
+                      {{/each}}
+                        <br />
+                        <br />
+                    </td>
+                    <td class="medium-priority">
+                      {{#each userStoriesAssignedToSprint '2'}}
+                        {{> userStory}}
+                      {{/each}}
+                        <br />
+                        <br />
+                    </td>
+                    <td class="high-priority">
+                      {{#each userStoriesAssignedToSprint '3'}}
+                        {{> userStory}}
+                      {{/each}}
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</template>
