@@ -5,7 +5,10 @@
         {{> dialogs}}
     </header>
     <div class="custom-container">
-        {{> yield}}
+        <div class="page-wrapper">
+            {{> sidebar }}
+            {{> yield}}
+        </div>
     </div>
     <!-- {{> footerApplication}} -->
 </template>
